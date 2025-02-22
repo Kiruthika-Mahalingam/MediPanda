@@ -1,0 +1,2 @@
+C:/Users/amirt/Desktop/flutter app/medipanda/android/app/.cxx/Debug/5b6w4q1x/x86/CMakeFiles/edit_cache.dir
+C:/Users/amirt/Desktop/flutter app/medipanda/android/app/.cxx/Debug/5b6w4q1x/x86/CMakeFiles/rebuild_cache.dir
