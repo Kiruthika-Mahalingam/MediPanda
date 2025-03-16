@@ -119,17 +119,27 @@
 // }
 
 
+// 
+
 import 'package:flutter/material.dart';
 import 'package:medipanda/screens/profile_screen.dart';
 
-class LanguageSelectionScreen extends StatelessWidget {
+class LanguageSelectionScreen extends StatefulWidget {
   const LanguageSelectionScreen({super.key});
+
+  @override
+  _LanguageSelectionScreenState createState() => _LanguageSelectionScreenState();
+}
+
+class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
+  String? _selectedLanguage;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Select Your Preferred Language', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+        title: Text('Select Your Preferred Language',
+            style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
         backgroundColor: Color(0xFF203c8c),
         centerTitle: true,
       ),
@@ -147,24 +157,24 @@ class LanguageSelectionScreen extends StatelessWidget {
             child: ListView(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               children: [
-                _buildLanguageTile('English', context),
-                _buildLanguageTile('Spanish (Español)', context),
-                _buildLanguageTile('French (Français)', context),
-                _buildLanguageTile('Tamil (தமிழ்)', context),
-                _buildLanguageTile('Hindi (हिन्दी)', context),
-                _buildLanguageTile('Mandarin (普通话)', context),
-                _buildLanguageTile('Arabic (العربية)', context),
-                _buildLanguageTile('Bengali (বাংলা)', context),
-                _buildLanguageTile('Portuguese (Português)', context),
-                _buildLanguageTile('Russian (Русский)', context),
-                _buildLanguageTile('Japanese (日本語)', context),
-                _buildLanguageTile('German (Deutsch)', context),
-                _buildLanguageTile('Korean (한국어)', context),
-                _buildLanguageTile('Italian (Italiano)', context),
-                _buildLanguageTile('Dutch (Nederlands)', context),
-                _buildLanguageTile('Greek (Ελληνικά)', context),
-                _buildLanguageTile('Turkish (Türkçe)', context),
-                _buildLanguageTile('Swahili (Kiswahili)', context),
+                _buildLanguageTile('English'),
+                _buildLanguageTile('Spanish (Español)'),
+                _buildLanguageTile('French (Français)'),
+                _buildLanguageTile('Tamil (தமிழ்)'),
+                _buildLanguageTile('Hindi (हिन्दी)'),
+                _buildLanguageTile('Mandarin (普通话)'),
+                _buildLanguageTile('Arabic (العربية)'),
+                _buildLanguageTile('Bengali (বাংলা)'),
+                _buildLanguageTile('Portuguese (Português)'),
+                _buildLanguageTile('Russian (Русский)'),
+                _buildLanguageTile('Japanese (日本語)'),
+                _buildLanguageTile('German (Deutsch)'),
+                _buildLanguageTile('Korean (한국어)'),
+                _buildLanguageTile('Italian (Italiano)'),
+                _buildLanguageTile('Dutch (Nederlands)'),
+                _buildLanguageTile('Greek (Ελληνικά)'),
+                _buildLanguageTile('Turkish (Türkçe)'),
+                _buildLanguageTile('Swahili (Kiswahili)'),
               ],
             ),
           ),
@@ -192,16 +202,28 @@ class LanguageSelectionScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildLanguageTile(String language, BuildContext context) {
-    return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      child: ListTile(
-        title: Text(language, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-        trailing: Icon(Icons.language, color: Color(0xFF203c8c)),
-        onTap: () {
-          // Handle language selection
-        },
+  Widget _buildLanguageTile(String language) {
+    bool isSelected = _selectedLanguage == language;
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _selectedLanguage = language;
+        });
+      },
+      child: Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        color: isSelected ? Color(0xFF203c8c).withOpacity(0.2) : Colors.white,
+        child: ListTile(
+          title: Text(language,
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: isSelected ? Color(0xFF203c8c) : Colors.black)),
+          trailing: isSelected
+              ? Icon(Icons.check_circle, color: Color(0xFF203c8c))
+              : Icon(Icons.language, color: Color(0xFF203c8c)),
+        ),
       ),
     );
   }

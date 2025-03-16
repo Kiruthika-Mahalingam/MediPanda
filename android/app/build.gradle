@@ -3,10 +3,18 @@ plugins {
     id "kotlin-android"
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
+    
+    id 'org.jetbrains.kotlin.android' version '1.8.22' apply false
 }
 
 android {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
     namespace = "com.example.medipanda"
+
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 

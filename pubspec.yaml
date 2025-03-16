@@ -11,9 +11,12 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
-  file_picker: ^6.1.1
+  file_picker: ^9.1.0
   image_picker: ^1.0.4
-  document_scanner_flutter: 0.2.7
+  path_provider: ^2.0.11
+  # document_scanner_flutter: 0.2.7
+  lottie: ^2.6.0 
+
 
 
 dev_dependencies:
@@ -25,5 +28,3 @@ flutter:
   uses-material-design: true
   assets:
     - web/icons/panda.png
-
-
