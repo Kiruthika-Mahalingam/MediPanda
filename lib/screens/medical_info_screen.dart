@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login_signup_screen.dart';
 
 class MedicalInfoScreen extends StatefulWidget {
   @override
@@ -45,7 +46,10 @@ class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
             SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                Navigator.popUntil(context, (route) => route.isFirst);
+                Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LoginSignupScreen()),
+    );
               },
               style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF203c8c)),
               child: Text('Save & Finish', style: TextStyle(color: Colors.white)),

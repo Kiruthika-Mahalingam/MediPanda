@@ -903,24 +903,26 @@ class _UploadScreenState extends State<UploadScreen> {
             SizedBox(height: 10),
             Text("Upload or Scan Medical Reports", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton.icon(
-                  onPressed: _pickFile,
-                  icon: Icon(Icons.file_upload, color: Colors.white),
-                  label: Text("Upload File"),
-                  style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF203c8c)),
-                ),
-                SizedBox(width: 10),
-                ElevatedButton.icon(
-                  onPressed: _scanDocument,
-                  icon: Icon(Icons.camera_alt, color: Colors.white),
-                  label: Text("Scan Document"),
-                  style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF203c8c)),
-                ),
-              ],
-            ),
+            Wrap(
+  spacing: 10,
+  runSpacing: 10,
+  alignment: WrapAlignment.center,
+  children: [
+    ElevatedButton.icon(
+      onPressed: _pickFile,
+      icon: Icon(Icons.file_upload, color: Colors.white),
+      label: Text("Upload File"),
+      style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF203c8c)),
+    ),
+    ElevatedButton.icon(
+      onPressed: _scanDocument,
+      icon: Icon(Icons.camera_alt, color: Colors.white),
+      label: Text("Scan Document"),
+      style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF203c8c)),
+    ),
+  ],
+),
+
           ],
         ),
       ),
